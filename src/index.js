@@ -5,6 +5,7 @@ const tags = '\\B[#][\\p{Alpha}|\\p{Number}]+'
 const usernames = '\\B[@][\\p{Alpha}|\\p{Number}]+'
 const email = '[0-9a-zA-Z!#$%&\'*+-/=?^_`{|}~.]+@[0-9a-zA-Z-.]+[a-zA-Z0-9]'
 const emojis = '\\p{Emoji_Presentation}'
+// const emojis = '\\p{RGI_Emoji}'
 
 const extract = function (string, options) {
   // Default options object

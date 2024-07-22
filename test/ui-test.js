@@ -9,7 +9,7 @@ const path = require('path')
 async function pageMacro (t, callback) {
   const browser = await browserPromise
   const page = await browser.newPage()
-  await page.setViewportSize({ width: 640, height: 480 })
+  await page.setViewportSize({ width: 800, height: 600 })
   try {
     await callback(t, page)
   } finally {
@@ -17,7 +17,7 @@ async function pageMacro (t, callback) {
   }
 }
 
-test('1: Add text, test default. 2: Test only emojis. 3: check emojis and text. 4: check emojis, numbers and text. 5: add more text. 6: check tags. 7: check usernames. 8: check email.', pageMacro, async (t, page) => {
+test('1: Add text, extract default. 2: Extract only emojis. 3: Extract emojis and text. 4: Extract emojis, numbers and text. 5: Add more text. 6: Extract tags. 7: Extract usernames. 8: Extract email address, 9: Extract emjojis consisting of several unicodes with custom emoji regex.', pageMacro, async (t, page) => {
   t.plan(9)
   const filePath = await path.resolve('./demo/index.html')
   const url = 'file://' + filePath
